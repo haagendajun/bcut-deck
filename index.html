@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bcut · 서비스 소개</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+:root{--bg-stage:#e3e3e3;--bg-slide:#f2f2f2;--bg-panel:#ffffff;--ink:#1f1f1f;--ink-muted:#5c5c5c;--ink-subtle:#8a8a8a;--line:#d6d6d6;--brand-lime:#c6f432;--brand-ink:#222222;--on-dark:#ffffff;
+--card-pink-from:#fbe3ef;--card-pink-to:#ff8cc6;--card-pink-band:#d1176b;--card-lavender-from:#f4f3ff;--card-lavender-to:#8e95f7;--card-lavender-band:#ffffff;
+--card-lime-from:#f1ffd0;--card-lime-to:#9be83c;--card-lime-band:#4fd84a;--card-mint-from:#e6fbf8;--card-mint-to:#5fdccb;--card-mint-band:#3b6fe0;--card-silver-from:#f5f5f7;--card-silver-to:#a9abb2;--card-silver-band:#26272b;
+--space-1:8px;--space-2:16px;--space-3:24px;--space-4:32px;--space-6:48px;--space-8:64px;--slide-margin:96px;--radius-sm:12px;--radius-card:28px;--radius-panel:40px;--radius-pill:999px;
+--shadow-card:0 40px 80px -24px rgba(31,31,31,.22),0 8px 24px rgba(31,31,31,.06);--shadow-soft:0 12px 32px rgba(31,31,31,.08);--tilt-1:6deg;--tilt-2:12deg;--tilt-3:18deg;--blur-glass:24px;
+--font-sans:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif}
+.display{font-family:var(--font-sans);font-size:160px;line-height:.95;font-weight:600;letter-spacing:-.04em}
+.number-xl{font-family:var(--font-sans);font-size:144px;line-height:1;font-weight:700;letter-spacing:-.04em}
+.h1{font-family:var(--font-sans);font-size:88px;line-height:1.05;font-weight:600;letter-spacing:-.03em}
+.h2{font-family:var(--font-sans);font-size:56px;line-height:1.15;font-weight:600;letter-spacing:-.02em}
+.h3{font-family:var(--font-sans);font-size:36px;line-height:1.25;font-weight:600;letter-spacing:-.01em}
+.lead{font-family:var(--font-sans);font-size:32px;line-height:1.45;font-weight:400}
+.body{font-family:var(--font-sans);font-size:26px;line-height:1.5;font-weight:400}
+.label{font-family:var(--font-sans);font-size:20px;line-height:1.3;font-weight:600;letter-spacing:.01em}
+.caption{font-family:var(--font-sans);font-size:18px;line-height:1.4;font-weight:400}
+.gd-slide{position:relative;width:1920px;height:1080px;flex:none;box-sizing:border-box;padding:var(--slide-margin);background:var(--bg-slide);color:var(--ink);font-family:var(--font-sans);overflow:hidden;display:flex;flex-direction:column;transform-origin:center center;word-break:keep-all}
+.gd-slide *{box-sizing:border-box}
+.gd-slide__body{flex:1;position:relative;display:flex;flex-direction:column;min-height:0}
+.gd-slide__title{margin:0;color:var(--ink)}
+.gd-slide__lead{margin:var(--space-3) 0 0;color:var(--ink-muted);max-width:1100px}
+.gd-topbar,.gd-footer{display:flex;align-items:center;justify-content:space-between;font-family:var(--font-sans)}
+.gd-topbar{margin-bottom:var(--space-6)}
+.gd-logo{display:flex;align-items:center;gap:var(--space-1);font-weight:700;font-size:26px;color:var(--ink);letter-spacing:-.01em}
+.gd-logo__mark{width:32px;height:32px;border-radius:var(--radius-sm);background:linear-gradient(135deg,var(--card-mint-to),var(--brand-lime))}
+.gd-nav{display:flex;gap:var(--space-6);color:var(--ink-muted)}.gd-nav .is-active{color:var(--ink)}
+.gd-footer{margin-top:var(--space-6);padding-top:var(--space-3);border-top:1px solid var(--line);color:var(--ink-muted)}
+.gd-footer__meta{color:var(--ink-subtle)}.gd-pageno{font-variant-numeric:tabular-nums;color:var(--ink-subtle)}
+.gd-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-1);height:72px;padding:0 var(--space-6);border-radius:var(--radius-pill);background:var(--brand-ink);color:var(--on-dark);font:600 22px/1 var(--font-sans);border:0;text-decoration:none;flex:none;white-space:nowrap;box-shadow:var(--shadow-soft)}
+.gd-tag{display:inline-flex;align-items:center;height:40px;padding:0 var(--space-2);border-radius:var(--radius-pill);background:var(--brand-lime);color:var(--ink);font:600 18px/1 var(--font-sans)}
+.gd-card{--from:var(--card-lime-from);--to:var(--card-lime-to);--band:var(--card-lime-band);--band-ink:var(--ink);position:relative;width:360px;height:520px;flex:none;display:flex;flex-direction:column;border-radius:var(--radius-card);overflow:hidden;color:var(--ink);text-align:left;word-break:keep-all;font-family:var(--font-sans);
+background:radial-gradient(120% 70% at 15% 0%,var(--from) 0%,transparent 70%),radial-gradient(90% 60% at 100% 100%,var(--to) 0%,transparent 75%),linear-gradient(160deg,var(--from) 0%,var(--to) 100%);box-shadow:var(--shadow-card),inset 0 0 0 1.5px rgba(255,255,255,.65);backdrop-filter:blur(var(--blur-glass));-webkit-backdrop-filter:blur(var(--blur-glass))}
+.gd-card::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(125deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 38%)}
+.gd-card--pink{--from:var(--card-pink-from);--to:var(--card-pink-to);--band:var(--card-pink-band);--band-ink:var(--on-dark)}
+.gd-card--lavender{--from:var(--card-lavender-from);--to:var(--card-lavender-to);--band:var(--card-lavender-band);--band-ink:var(--ink)}
+.gd-card--lime{--from:var(--card-lime-from);--to:var(--card-lime-to);--band:var(--card-lime-band);--band-ink:var(--ink)}
+.gd-card--mint{--from:var(--card-mint-from);--to:var(--card-mint-to);--band:var(--card-mint-band);--band-ink:var(--on-dark)}
+.gd-card--silver{--from:var(--card-silver-from);--to:var(--card-silver-to);--band:var(--card-silver-band);--band-ink:var(--on-dark)}
+.gd-card__head{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;padding:var(--space-3)}
+.gd-card__kicker{font:800 26px/1 var(--font-sans);font-style:italic;letter-spacing:-.02em}
+.gd-card__chip{min-width:48px;height:40px;padding:0 10px;border-radius:var(--radius-sm);display:grid;place-items:center;background:rgba(255,255,255,.7);color:var(--ink);font:700 18px/1 var(--font-sans);font-variant-numeric:tabular-nums}
+.gd-card__main{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--space-3) var(--space-3);gap:var(--space-1)}
+.gd-card__eyebrow{font:600 16px/1.2 var(--font-sans);color:var(--ink);letter-spacing:.02em}
+.gd-card__title{margin:0;font:600 34px/1.15 var(--font-sans);letter-spacing:-.02em}
+.gd-card__text{margin:0;font:400 22px/1.45 var(--font-sans);color:var(--ink)}
+.gd-card__band{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-end;gap:var(--space-2);min-height:112px;padding:var(--space-3);background:var(--band);color:var(--band-ink)}
+.gd-card__band small{display:block;font:500 14px/1.2 var(--font-sans);opacity:.85;margin-bottom:4px}
+.gd-card__band strong{font:600 20px/1.2 var(--font-sans)}
+.gd-card--step{width:100%;height:440px}
+.gd-fan{--drop:44px;--overlap:-40px;position:relative;display:flex;justify-content:center;align-items:center;padding:48px 0 calc(var(--drop)*2)}
+.gd-fan>*{margin:0 var(--overlap);transform-origin:50% 100%}
+.gd-fan>[data-pos="-2"]{transform:translateY(calc(var(--drop)*1.6)) rotate(calc(var(--tilt-2)*-1));z-index:2}
+.gd-fan>[data-pos="-1"]{transform:translateY(calc(var(--drop)*.4)) rotate(calc(var(--tilt-1)*-1));z-index:3}
+.gd-fan>[data-pos="0"]{transform:translateY(calc(var(--drop)*-.5));z-index:5}
+.gd-fan>[data-pos="1"]{transform:translateY(calc(var(--drop)*.4)) rotate(var(--tilt-1));z-index:3}
+.gd-fan>[data-pos="2"]{transform:translateY(calc(var(--drop)*1.6)) rotate(var(--tilt-2));z-index:2}
+.gd-fan--bleed{margin:0 calc(var(--slide-margin)*-1)}.gd-fan--overlap{margin-top:-64px}
+.gd-process{display:flex;align-items:center;gap:var(--space-2)}
+.gd-process__step{flex:1 1 0;min-width:0;position:relative}
+.gd-process__arrow{flex:none;position:relative;width:var(--space-8);height:2px;background:var(--line)}
+.gd-process__arrow::after{content:"";position:absolute;right:0;top:50%;width:12px;height:12px;border-top:2px solid var(--ink-subtle);border-right:2px solid var(--ink-subtle);transform:translateY(-50%) rotate(45deg)}
+.gd-process__step.is-current>.gd-card{transform:translateY(-16px);box-shadow:var(--shadow-card),inset 0 0 0 3px var(--brand-lime)}
+/* 화면 캡처 틀 (토큰만 사용) */
+.gd-shot{background:var(--bg-panel);border-radius:var(--radius-card);box-shadow:var(--shadow-card);overflow:hidden;line-height:0}
+.gd-shot img{display:block;width:100%;height:auto}
+.gd-shot-cap{margin-top:var(--space-2);color:var(--ink-muted)}
+.gd-num{display:flex;flex-direction:column;gap:var(--space-2);flex:none}.gd-num .body{max-width:100%;width:0;min-width:100%}
+.gd-num .number-xl{color:var(--ink);white-space:nowrap}
+.gd-num .body{color:var(--ink-muted)}
+html,body{margin:0;height:100%;background:var(--bg-stage);overflow:hidden}
+.deck{position:fixed;inset:0}
+.deck>.gd-slide{position:absolute;left:50%;top:50%;display:none;transform-origin:0 0}
+.deck>.gd-slide.is-current{display:flex}
+.deck-counter{position:fixed;right:16px;bottom:12px;font:500 13px var(--font-sans);color:var(--ink-subtle)}
+@media print{@page{size:1920px 1080px;margin:0}html,body{height:auto;overflow:visible;background:none}.deck{position:static}.deck>.gd-slide{display:flex!important;position:relative;left:0;top:0;transform:none!important;break-after:page}.deck-counter{display:none}}
+.gd-mark{background:linear-gradient(transparent 55%,var(--brand-lime) 55%,var(--brand-lime) 88%,transparent 88%);padding:0 .08em}
+.gd-note{background:var(--bg-panel);border-radius:var(--radius-card);box-shadow:var(--shadow-soft);padding:var(--space-3) var(--space-4)}
+.gd-note h4{font:600 26px/1.25 var(--font-sans);letter-spacing:-.01em;margin:0 0 6px;color:var(--ink)}
+.gd-note p{margin:0;font:400 22px/1.45 var(--font-sans);color:var(--ink-muted)}
+.gd-note .no{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:var(--radius-sm);background:var(--bg-slide);font:700 18px/1 var(--font-sans);margin-right:12px;vertical-align:2px;color:var(--ink)}
+.flow{display:flex;gap:6px}
+.flow>div{flex:1;padding:22px 18px;border-radius:var(--radius-card);background:var(--bg-panel);box-shadow:var(--shadow-soft);text-align:center;position:relative}
+.flow .nm{font:600 28px/1.2 var(--font-sans);color:var(--ink)}.flow .sb{font:400 20px/1.3 var(--font-sans);color:var(--ink-muted);margin-top:6px}
+.flow>div.hot{background:linear-gradient(160deg,var(--card-pink-from),var(--card-pink-to));box-shadow:var(--shadow-card),inset 0 0 0 1.5px rgba(255,255,255,.65)}
+.flow>div.hot .sb{color:var(--ink);font-weight:600}
+.flow .ar{flex:none;width:28px;background:none;box-shadow:none;padding:0;display:grid;place-items:center;color:var(--ink-subtle);font-size:26px}
+.stat4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3)}
+.stat4>div{padding:var(--space-3) var(--space-4);border-radius:var(--radius-card);background:var(--bg-panel);box-shadow:var(--shadow-soft)}
+.stat4 b{display:block;font:700 76px/1 var(--font-sans);letter-spacing:-.04em;color:var(--ink)}
+.stat4 span{display:block;margin-top:8px;font:400 22px/1.35 var(--font-sans);color:var(--ink-muted)}
+.chips{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.chips .c{height:48px;padding:0 22px;border-radius:var(--radius-pill);display:inline-flex;align-items:center;font:600 22px/1 var(--font-sans);background:var(--bg-panel);box-shadow:inset 0 0 0 1.5px var(--line);color:var(--ink)}
+.chips .a{color:var(--ink-subtle);font-size:24px}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3)}
+.cols3 .gd-note h4{margin-bottom:10px}
+.cols3 ul{margin:0;padding:0;list-style:none}.cols3 li{font:400 21px/1.45 var(--font-sans);color:var(--ink-muted);padding:2px 0}
+.cols3 li::before{content:"·";margin-right:8px;color:var(--ink-subtle)}
+.gd-fan--compact{--drop:28px;--overlap:-20px;padding-top:24px}
+.gd-fan--compact>.gd-card{width:420px;height:400px}
+.gd-fan--compact .gd-card__band{min-height:92px;padding:var(--space-2) var(--space-3)}
+.gd-fan--compact .gd-card__title{font-size:30px}
+
+</style></head>
+<body>
+<main class="deck">
+<section class="gd-slide"><header class="gd-topbar"><div class="gd-logo"><span class="gd-logo__mark"></span>bcut</div><nav class="gd-nav label"><span class="is-active">소개</span><span>배경</span><span>방향</span><span>기능</span><span>구현·현황</span></nav></header><div class="gd-slide__body">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:48px"><div><h1 class="display" style="margin:0">bcut</h1><p class="lead" style="margin:24px 0 0;color:var(--ink-muted)">포토팀 셀렉 업무를 돕는 Mac 앱 · 프로젝트 공유</p></div><a class="gd-btn">v0.3.5 · Mac 앱</a></div>
+<div class="gd-fan gd-fan--bleed gd-fan--overlap" style="margin-top:auto;--overlap:-12px"><article class="gd-card gd-card--pink" data-pos="-2"><div class="gd-card__head"><span class="gd-card__kicker">A</span><span class="gd-card__chip">01</span></div><div class="gd-card__main"><span class="gd-card__eyebrow">CHECK</span><h3 class="gd-card__title">먼저 찾아 둬요</h3><p class="gd-card__text">눈 감김·흔들림 의심을 이유와 함께</p></div><div class="gd-card__band"><div><small>판정</small><strong>눈·흔들림</strong></div><div><small>방식</small><strong>참고 의견</strong></div></div></article><article class="gd-card gd-card--lavender" data-pos="-1"><div class="gd-card__head"><span class="gd-card__kicker">B</span><span class="gd-card__chip">02</span></div><div class="gd-card__main"><span class="gd-card__eyebrow">REVIEW</span><h3 class="gd-card__title">키보드로 훑어요</h3><p class="gd-card__text">큰 사진 한 장씩 보며 바로 표시</p></div><div class="gd-card__band"><div><small>키</small><strong>S M X</strong></div><div><small>취소</small><strong>⌘Z</strong></div></div></article><article class="gd-card gd-card--lime" data-pos="0"><div class="gd-card__head"><span class="gd-card__kicker">C</span><span class="gd-card__chip">03</span></div><div class="gd-card__main"><span class="gd-card__eyebrow">CORE</span><h3 class="gd-card__title">좋은 컷만 골라요</h3><p class="gd-card__text">셀렉·보류·버릴 컷을 한 장씩 표시</p></div><div class="gd-card__band"><div><small>표시</small><strong>셀렉·보류</strong></div><div><small>화면</small><strong>큰 사진</strong></div></div></article><article class="gd-card gd-card--mint" data-pos="1"><div class="gd-card__head"><span class="gd-card__kicker">D</span><span class="gd-card__chip">04</span></div><div class="gd-card__main"><span class="gd-card__eyebrow">CAPTURE ONE</span><h3 class="gd-card__title">결과를 바로 반영</h3><p class="gd-card__text">이름표·별점·색을 선택해 반영</p></div><div class="gd-card__band"><div><small>문서</small><strong>카탈로그·세션</strong></div><div><small>반영</small><strong>미리보기</strong></div></div></article><article class="gd-card gd-card--silver" data-pos="2"><div class="gd-card__head"><span class="gd-card__kicker">E</span><span class="gd-card__chip">05</span></div><div class="gd-card__main"><span class="gd-card__eyebrow">SAFE</span><h3 class="gd-card__title">되돌리고 관리</h3><p class="gd-card__text">기록은 휴지통으로, 언제든 복원</p></div><div class="gd-card__band"><div><small>사진 삭제</small><strong>없음</strong></div><div><small>기록</small><strong>휴지통</strong></div></div></article></div></div></section>
+
+<section class="gd-slide"><header class="gd-topbar"><div class="gd-logo"><span class="gd-logo__mark"></span>bcut</div><nav class="gd-nav label"><span>소개</span><span class="is-active">배경</span><span>방향</span><span>기능</span><span>구현·현황</span></nav></header><div class="gd-slide__body">
+<span class="gd-tag" style="align-self:flex-start;margin-bottom:20px">WHY</span>
+<h2 class="gd-slide__title h2">행사마다 수백~천 장을 같은 집중도로 비교했다</h2>
+<p class="gd-slide__lead lead" style="max-width:1500px">셀렉이 정해진 절차 없이 개인 방식에 의존해서, 매번 전수 비교하고 재요청이 올 때마다 처음부터 다시 찾았어요.</p>
+<div style="margin-top:36px"><p class="label" style="color:var(--ink-muted);margin-bottom:14px">포토팀 셀렉 업무 흐름</p>
+<div class="flow"><div><div class="nm">불러오기·정렬</div><div class="sb">폴더 가져오기</div></div><div class="ar">›</div>
+<div class="hot"><div class="nm">1차 컷</div><div class="sb">오래 걸림</div></div><div class="ar">›</div>
+<div class="hot"><div class="nm">유사컷 비교</div><div class="sb">오래 걸림</div></div><div class="ar">›</div>
+<div><div class="nm">판단·합의</div><div class="sb">담당자 의견 반영</div></div><div class="ar">›</div>
+<div><div class="nm">최종 정리</div><div class="sb">태깅·전달</div></div></div></div>
+<div class="stat4" style="margin-top:auto;grid-template-columns:repeat(3,1fr)">
+<div><b>300~1,500</b><span>행사 하나에 나오는 사진 장수</span></div>
+<div><b>자주</b><span>전달한 뒤에도 다시 골라 달라는 요청</span></div>
+<div><b>사람마다</b><span>A컷 기준이 달라 통일된 기준이 없음</span></div></div></div><footer class="gd-footer caption"><span>근거: 인터뷰 기록(raw_problem) · 문제 정의</span><span class="gd-footer__meta">v0.3.5 · 2026.10</span><span class="gd-pageno">02</span></footer></section>
+
+<section class="gd-slide"><header class="gd-topbar"><div class="gd-logo"><span class="gd-logo__mark"></span>bcut</div><nav class="gd-nav label"><span>소개</span><span>배경</span><span class="is-active">방향</span><span>기능</span><span>구현·현황</span></nav></header><div class="gd-slide__body">
+<h2 class="gd-slide__title h2">거르는 도구에서, 고르는 일을 돕는 도구로</h2>
+<p class="gd-slide__lead lead" style="max-width:1500px">인터뷰 결과 현업의 주 업무는 거르기보다 좋은 컷 고르기여서, 중심을 바꾸고 세 원칙을 정했어요.</p>
+<div class="gd-fan gd-fan--compact" style="margin-top:10px;--overlap:12px"><article class="gd-card gd-card--lavender" data-pos="-1"><div class="gd-card__head"><span class="gd-card__kicker">A</span><span class="gd-card__chip">01</span></div><div class="gd-card__main"><span class="gd-card__eyebrow">PRINCIPLE</span><h3 class="gd-card__title">사람이 최종 판단</h3><p class="gd-card__text">앱은 이유만 알려 주고 숨기지 않아요</p></div><div class="gd-card__band"><div><small>앱의 역할</small><strong>참고 의견</strong></div><div><small>판단</small><strong>사람</strong></div></div></article><article class="gd-card gd-card--lime" data-pos="0"><div class="gd-card__head"><span class="gd-card__kicker">B</span><span class="gd-card__chip">02</span></div><div class="gd-card__main"><span class="gd-card__eyebrow">SAFE</span><h3 class="gd-card__title">원본은 그대로</h3><p class="gd-card__text">읽기 전용 · 취소 이력 · 휴지통</p></div><div class="gd-card__band"><div><small>사진 삭제</small><strong>없음</strong></div><div><small>되돌리기</small><strong>지원</strong></div></div></article><article class="gd-card gd-card--mint" data-pos="1"><div class="gd-card__head"><span class="gd-card__kicker">C</span><span class="gd-card__chip">03</span></div><div class="gd-card__main"><span class="gd-card__eyebrow">PRIVATE</span><h3 class="gd-card__title">사진은 내 맥 안에서</h3><p class="gd-card__text">인터넷은 선택 기능일 때만</p></div><div class="gd-card__band"><div><small>사진 업로드</small><strong>없음</strong></div><div><small>동의</small><strong>필수</strong></div></div></article></div>
+<p class="body" style="margin:auto 0 0;color:var(--ink-muted)">이번 범위는 훑기·표시·Capture One 반영까지예요. 피사체 자동 분류와 A컷 기준 표준화는 하지 않아요.</p></div><footer class="gd-footer caption"><span>근거: PRD · 결정 기록 ADR-0007</span><span class="gd-footer__meta">v0.3.5 · 2026.10</span><span class="gd-pageno">03</span></footer></section>
+
+<section class="gd-slide"><header class="gd-topbar"><div class="gd-logo"><span class="gd-logo__mark"></span>bcut</div><nav class="gd-nav label"><span>소개</span><span>배경</span><span>방향</span><span class="is-active">기능</span><span>구현·현황</span></nav></header><div class="gd-slide__body" style="flex-direction:row;gap:48px;align-items:center">
+<div style="flex:none;width:640px;display:flex;flex-direction:column;gap:14px">
+<div><span class="gd-tag" style="margin-bottom:16px">FEATURE 1</span><h2 class="gd-slide__title h2" style="font-size:52px">큰 사진 한 장씩,<br>키보드로 고른다</h2></div>
+<div class="gd-note"><h4><span class="no">1</span>S · M · X 로 표시</h4><p>셀렉·보류·버릴 컷을 누르면 바로 다음 사진으로 넘어가요.</p></div>
+<div class="gd-note"><h4><span class="no">2</span>앱의 의견은 참고용</h4><p>눈 감김·흔들림 의심을 이유 문장과 함께 보여 줘요.</p></div>
+<div class="gd-note"><h4><span class="no">3</span>실수해도 안전</h4><p>⌘Z로 되돌리고, 표시 취소 이력이 남아요.</p></div>
+<div class="gd-note"><h4><span class="no">4</span>나누어 담기</h4><p>셀렉·보류 폴더로 사본을 만들고, 담기 전에 장수를 확인해요.</p></div>
+</div>
+<div style="flex:1;min-width:0"><div class="gd-shot"><img src="assets/review.webp" alt="훑기 화면"></div><p class="caption gd-shot-cap">훑기 화면 · 한 장씩 보며 고르는 곳. 사진은 예시용 가상 이미지</p></div></div><footer class="gd-footer caption"><span>근거: PRD 요구사항 FR-21~27</span><span class="gd-footer__meta">v0.3.5 · 2026.10</span><span class="gd-pageno">04</span></footer></section>
+
+<section class="gd-slide"><header class="gd-topbar"><div class="gd-logo"><span class="gd-logo__mark"></span>bcut</div><nav class="gd-nav label"><span>소개</span><span>배경</span><span>방향</span><span class="is-active">기능</span><span>구현·현황</span></nav></header><div class="gd-slide__body" style="flex-direction:row;gap:40px;align-items:center">
+<div style="flex:none;width:560px;display:flex;flex-direction:column;gap:14px">
+<div><span class="gd-tag" style="margin-bottom:16px">FEATURE 2</span><h2 class="gd-slide__title h2" style="font-size:52px">Capture One에 반영하고 기록을 관리한다</h2></div>
+<div class="gd-note"><h4><span class="no">1</span>이름표 + 별점·색</h4><p>고른 것만 주고, 이미 값이 있는 사진은 건드리지 않아요.</p></div>
+<div class="gd-note"><h4><span class="no">2</span>미리보기 → 반영 → 되돌리기</h4><p>이전 값을 저장해 두고, 카탈로그·세션 모두 지원해요.</p></div>
+<div class="gd-note"><h4><span class="no">3</span>기록 관리</h4><p>행사별 기록을 보고, 지우면 휴지통에서 복원할 수 있어요.</p></div>
+</div>
+<div style="flex:none;width:400px"><div class="gd-shot"><img src="assets/capture.webp" alt="Capture One 표시 창"></div><p class="caption gd-shot-cap">열린 문서를 고르고 별점·색 선택</p></div>
+<div style="flex:1;min-width:0"><div class="gd-shot"><img src="assets/records.webp" alt="기록 관리 창"></div><p class="caption gd-shot-cap">기록 관리 · 표시 해제, 지우기(복원 가능)</p></div></div><footer class="gd-footer caption"><span>근거: PRD 요구사항 FR-28~36</span><span class="gd-footer__meta">v0.3.5 · 2026.10</span><span class="gd-pageno">05</span></footer></section>
+
+<section class="gd-slide"><header class="gd-topbar"><div class="gd-logo"><span class="gd-logo__mark"></span>bcut</div><nav class="gd-nav label"><span>소개</span><span>배경</span><span>방향</span><span>기능</span><span class="is-active">구현·현황</span></nav></header><div class="gd-slide__body">
+<h2 class="gd-slide__title h2">문서로 정하고, 시험으로 지켜 v0.3.5까지 왔다</h2>
+<div class="chips" style="margin-top:22px"><span class="c">Electron 앱</span><span class="a">›</span><span class="c">내 맥의 로컬 서버 (Python)</span><span class="a">›</span><span class="c">Capture One (AppleScript)</span><span class="a">·</span><span class="c" style="color:var(--ink-muted)">선택: 클라우드 (Supabase)</span></div>
+<div class="stat4" style="margin-top:30px"><div><b class="gd-mark" style="display:inline-block">608</b><span>자동 시험 (사진 삭제 0건 확인 포함)</span></div><div><b>12</b><span>결정 기록 (ADR)</span></div><div><b>37</b><span>요구사항 (FR)</span></div><div><b>3일</b><span>10/19 시작 → 10/21 v0.3.5</span></div></div>
+<div class="chips" style="margin-top:28px"><span class="c" style="color:var(--ink-muted)">만든 순서</span><span class="c">Intent</span><span class="a">›</span><span class="c">기획 문서 (IA·UJ·PRD·ERD)</span><span class="a">›</span><span class="c">spec·plan</span><span class="a">›</span><span class="c">구현 + 시험</span><span class="a">›</span><span class="c">QA·릴리스</span></div>
+<div class="cols3" style="margin-top:auto">
+<div class="gd-note"><h4>현황</h4><ul><li>훑기·Capture One·기록 관리 동작</li><li>Mac 앱 v0.3.5 배포 (zip)</li><li>QA 시험 89개 기록</li></ul></div>
+<div class="gd-note"><h4>한계</h4><ul><li>시간 단축은 아직 못 쟀어요</li><li>Canon CR3 사진만 시험</li><li>서명 없는 앱 (처음 우클릭 → 열기)</li></ul></div>
+<div class="gd-note"><h4>다음 단계</h4><ul><li>훑기 기록으로 소요 시간 측정</li><li>판정 정확도 평가, 다른 RAW 확인</li><li>사람이 볼 확인 36개 마무리</li></ul></div></div></div><footer class="gd-footer caption"><span>근거: Intent.md · QA 시트 · 결정 기록</span><span class="gd-footer__meta">v0.3.5 · 2026.10</span><span class="gd-pageno">06</span></footer></section>
+</main>
+<div class="deck-counter"></div>
+
+<script>
+(() => {
+  const slides = [...document.querySelectorAll('.deck > .gd-slide')];
+  const counter = document.querySelector('.deck-counter');
+  let i = Math.max(0, Math.min(slides.length - 1, (parseInt(location.hash.slice(1)) || 1) - 1));
+  const fit = () => { const s = Math.min(innerWidth / 1920, innerHeight / 1080); slides.forEach(el => el.style.transform = `scale(${s}) translate(-50%, -50%)`); };
+  const show = n => { i = Math.max(0, Math.min(slides.length - 1, n)); slides.forEach((el, k) => el.classList.toggle('is-current', k === i)); counter.textContent = `${i + 1} / ${slides.length}`; history.replaceState(null, '', '#' + (i + 1)); };
+  addEventListener('keydown', e => {
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); show(i + 1); }
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); show(i - 1); }
+    if (e.key === 'Home') show(0); if (e.key === 'End') show(slides.length - 1);
+  });
+  addEventListener('click', e => { if (!e.target.closest('a,button')) show(i + (e.clientX > innerWidth / 2 ? 1 : -1)); });
+  addEventListener('resize', fit); fit(); show(i);
+})();
+</script>
+</body></html>
